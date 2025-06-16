@@ -21,7 +21,7 @@ class KiwoomAPI:
                 self.app = QApplication(sys.argv)
             
             self.kiwoom = Kiwoom()
-            self.kiwoom.comm_connect()
+            self.kiwoom.CommConnect()
             
             # 로그인 완료까지 대기
             while not self.kiwoom.get_connect_state():
@@ -337,6 +337,6 @@ class KiwoomAPI:
     def disconnect(self):
         """연결 해제"""
         if self.kiwoom:
-            self.kiwoom.comm_terminate()
+            self.kiwoom.CommTerminate()
         if self.app:
             self.app.quit()
