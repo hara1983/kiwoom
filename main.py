@@ -11,15 +11,15 @@ from PyQt5.QtWidgets import QApplication
 # 프로젝트 모듈 import
 from kiwoom_api import KiwoomAPI
 from config import Config
-from strategy import TradingStrategy
-from logger import Logger
+from strategy import OptionTradingStrategy
+from logger import TradingLogger
 
 class AutoTrader:
     def __init__(self):
         self.config = Config()
-        self.logger = Logger()
+        self.logger = TradingLogger()
         self.kiwoom = KiwoomAPI()
-        self.strategy = TradingStrategy(self.kiwoom, self.logger)
+        self.strategy = OptionTradingStrategy(self.kiwoom, self.logger)
         
         self.is_running = False
         self.selected_options = []
